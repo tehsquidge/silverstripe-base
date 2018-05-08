@@ -1,0 +1,19 @@
+{
+    "name": "tehsquidge/silverstripe-base",
+    "description": "Base Repo",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Liam Kerr",
+            "email": "liam.d.kerr@gmail.com"
+        }
+    ],
+    "require": {
+        "silverstripe/recipe-cms": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LDK\\": "src/"
+        }
+    }
+}
