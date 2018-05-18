@@ -1,5 +1,7 @@
 var fs = require('fs'),
     gulp = require('gulp'),
+    concat = require("gulp-concat"),
+    insert = require('gulp-insert'),
     cleanCSS = require("gulp-clean-css"),
     uglify = require("gulp-uglify"),
     rename = require('gulp-rename'),
@@ -13,32 +15,40 @@ var fs = require('fs'),
             gulp.src('./app/sass/*.scss'),
             sass().on('error', sass.logError),
             autoprefixer(),
+            insert.prepend('/** AUTOMATICALLY GENERATED! DO NOT EDIT! **/\n'),
             gulp.dest('./public/css/')
         ]);
     });
-    
+
     gulp.task('minify', function () {
         pump([
           gulp.src('./public/css/main.css'),
-          cleanCSS(),
-          rename('css.min.css'),
+          concat('css.css'),
           gulp.dest('./public/css/'),
-    
+          cleanCSS(),
+          insert.prepend('/** AUTOMATICALLY GENERATED! DO NOT EDIT! **/\n'),
+          rename('css.min.css'),
+          gulp.dest('./public/css/')
         ]);
         pump([
           gulp.src(['./app/js/plugins.js','./app/js/main.js']),
+          concat('js.js'),
+          insert.prepend('/** AUTOMATICALLY GENERATED! DO NOT EDIT! **/\n'),
+          gulp.dest('./public/js/'),
           rename('js.min.js'),
-          uglify(),
-          gulp.dest('./dist/'),
-    
+          gulp.dest('./public/js/')
+        ]);
+        pump([
+            gulp.src('./app/js/vendor'),
+            gulp.dest('./public/js/')
         ]);
     });
 
 
-    
+
     gulp.task('watch', function () {
         gulp.watch('./app/sass/**/*.scss', ['sass','minify']);
         gulp.watch(['./app/js/*.js',], ['minify']);
 
     });
-      
+
