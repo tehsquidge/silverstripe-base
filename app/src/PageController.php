@@ -10,11 +10,9 @@ class PageController extends ContentController
     protected function init()
     {
         parent::init();
-        Requirements::css('css/normalize.css');
-        Requirements::css('css/main.css');
+        Requirements::css('css/css.min.css');
         Requirements::javascript('js/vendor/modernizr-3.6.0.min.js');
         Requirements::javascript('js/vendor/jquery-3.3.1.min.js');
-        Requirements::javascript('js/plugins.js');
-        Requirements::javascript('js/main.js');
+        Requirements::javascript('js/js.min.js');
     }
 }
