@@ -30,7 +30,7 @@ var fs = require('fs'),
           rename('css.min.css'),
           gulp.dest('./public/css/')
         ]);
-        pump([
+        return pump([
           gulp.src(['./app/js/plugins.js','./app/js/main.js']),
           concat('js.js'),
           insert.prepend('/** AUTOMATICALLY GENERATED! DO NOT EDIT! **/\n'),
@@ -38,17 +38,20 @@ var fs = require('fs'),
           rename('js.min.js'),
           gulp.dest('./public/js/')
         ]);
-        pump([
-            gulp.src('./app/js/vendor'),
-            gulp.dest('./public/js/')
+    });
+
+    gulp.task('copy-assets', function (){
+        return pump([
+            gulp.src('./app/js/vendor/*'),
+            gulp.dest('./public/js/vendor/')
         ]);
     });
 
 
 
     gulp.task('watch', function () {
-        gulp.watch('./app/sass/**/*.scss', ['sass','minify']);
-        gulp.watch(['./app/js/*.js',], ['minify']);
+        gulp.watch('./app/sass/**/*.scss',  gulp.series('sass','minify','copy-assets') );
+        gulp.watch(['./app/js/*.js',], gulp.series('minify','copy-assets') );
 
     });
 
