@@ -24,7 +24,13 @@ class MastheadSlide extends DataObject {
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => '',
-        'Title' => 'Title'
+        'Title' => 'Title',
+        'Copy' => 'Copy'
+    ];
+
+    private static $searchable_fields = [
+        'Title',
+        'Copy'
     ];
 
     public function getCMSfields(){
