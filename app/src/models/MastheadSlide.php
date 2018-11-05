@@ -4,13 +4,15 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextAreaField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class MastheadSlide extends DataObject {
     private static $db = [
+        'Index' => 'Int',
         'Title' => 'HTMLVarchar(255)',
-        'Copy' => 'HTMLVarchar(255)'
+        'Copy' => 'Text'
     ];
 
     private static $has_one = [
@@ -24,22 +26,26 @@ class MastheadSlide extends DataObject {
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => '',
+        'Index' => 'Index',
         'Title' => 'Title',
         'Copy' => 'Copy'
     ];
 
     private static $searchable_fields = [
+        'Index',
         'Title',
         'Copy'
     ];
+
+    private static $default_sort = 'Index ASC';
 
     public function getCMSfields(){
         $fields = FieldList::create(TabSet::create('Root'));
 
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title','Title'),
-            TextField::create('Copy','Copy'),
-            $imageUpload =  UploadField::create('Image','Image')
+            TextAreaField::create('Copy','Copy'),
+            $imageUpload = UploadField::create('Image','Image')
         ]);
 
         $imageUpload->getValidator()->setAllowedExtensions(array(
