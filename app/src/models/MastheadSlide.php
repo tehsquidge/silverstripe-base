@@ -1,5 +1,6 @@
 <?php
 
+use SilverStripe\Versioned\Versioned;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\FieldList;
@@ -9,6 +10,11 @@ use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class MastheadSlide extends DataObject {
+
+    private static $extensions = [
+        Versioned::class,
+    ];
+
     private static $db = [
         'Index' => 'Int',
         'Title' => 'HTMLVarchar(255)',
