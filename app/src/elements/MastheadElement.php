@@ -11,11 +11,22 @@ class MastheadElement extends BaseElement {
         'MastheadSlides' => MastheadSlide::class
     ];
 
+    private static $owns = [
+        'MastheadSlides'
+    ];
+
+    private static $versioned_gridfield_extensions = true;
+
+    public function getType(){
+        return 'Masthead Element';
+    }
+
     public function getCMSFields(){
         $fields = parent::getCMSFields();
 
         $gridConfig = GridFieldConfig_RecordEditor::create();
-        $gridConfig->addComponent(new GridFieldSortableRows('Index'));
+        $gridConfig->addComponent($sortable = new GridFieldSortableRows('Index'));
+        $sortable->setUpdateVersionedStage('Live');
 
         $fields->addFieldsToTab('Root.Main', [
             GridField::create(
@@ -27,10 +38,6 @@ class MastheadElement extends BaseElement {
         ]);
 
         return $fields;
-    }
-
-    public function getType(){
-        return 'Masthead Element';
     }
 
 }
