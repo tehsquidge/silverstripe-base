@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecb498f031c0bba5e8bfcd1cfe3cfbc7",
+    "content-hash": "031fe32a023c85992cef9233914c216f",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1727,16 +1727,16 @@
         },
         {
             "name": "silverstripe/versioned",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-versioned.git",
-                "reference": "7805484b710f24dd6cd132c030efea914a721d46"
+                "reference": "0bc1d474b153039d01415895b7d3aed133d09f9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-versioned/zipball/7805484b710f24dd6cd132c030efea914a721d46",
-                "reference": "7805484b710f24dd6cd132c030efea914a721d46",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-versioned/zipball/0bc1d474b153039d01415895b7d3aed133d09f9f",
+                "reference": "0bc1d474b153039d01415895b7d3aed133d09f9f",
                 "shasum": ""
             },
             "require": {
@@ -1774,7 +1774,7 @@
                 "silverstripe",
                 "versioned"
             ],
-            "time": "2018-07-30T10:25:55+00:00"
+            "time": "2018-11-07T04:57:46+00:00"
         },
         {
             "name": "silverstripe/versioned-admin",
@@ -2484,60 +2484,6 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2018-10-02T16:33:53+00:00"
-        },
-        {
-            "name": "undefinedoffset/sortablegridfield",
-            "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/UndefinedOffset/SortableGridField.git",
-                "reference": "504387d71179601f03bf682b76b69311b80d1ec9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/504387d71179601f03bf682b76b69311b80d1ec9",
-                "reference": "504387d71179601f03bf682b76b69311b80d1ec9",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "~4.0",
-                "silverstripe/vendor-plugin": "^1.0",
-                "silverstripe/versioned": "^1.0"
-            },
-            "type": "silverstripe-vendormodule",
-            "extra": {
-                "installer-name": "sortablegridfield",
-                "expose": [
-                    "css",
-                    "javascript"
-                ],
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "UndefinedOffset\\SortableGridField\\": "src/",
-                    "UndefinedOffset\\SortableGridField\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ed Chipman",
-                    "homepage": "http://www.edchipman.ca",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Adds drag and drop functionality to SilverStripe 4.x's GridField",
-            "keywords": [
-                "gridfield",
-                "silverstripe"
-            ],
-            "time": "2018-07-04T17:06:01+00:00"
         },
         {
             "name": "webonyx/graphql-php",

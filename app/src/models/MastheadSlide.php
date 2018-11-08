@@ -16,7 +16,7 @@ class MastheadSlide extends DataObject {
     ];
 
     private static $db = [
-        'Index' => 'Int',
+        'Sort' => 'Int',
         'Title' => 'HTMLVarchar(255)',
         'Copy' => 'Text'
     ];
@@ -43,7 +43,7 @@ class MastheadSlide extends DataObject {
         'Copy'
     ];
 
-    private static $default_sort = 'Index ASC';
+    private static $default_sort = 'Sort ASC';
 
     public function getCMSfields(){
         $fields = FieldList::create(TabSet::create('Root'));
@@ -55,7 +55,7 @@ class MastheadSlide extends DataObject {
         ]);
 
         $imageUpload->getValidator()->setAllowedExtensions(array(
-            'png','jpeg','jpg'
+            'png', 'jpeg', 'jpg'
         ));
         $imageUpload->setFolderName('masthead-images');
 

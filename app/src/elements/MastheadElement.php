@@ -1,9 +1,10 @@
 <?php
 
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class MastheadElement extends BaseElement {
 
@@ -25,8 +26,7 @@ class MastheadElement extends BaseElement {
         $fields = parent::getCMSFields();
 
         $gridConfig = GridFieldConfig_RecordEditor::create();
-        $gridConfig->addComponent($sortable = new GridFieldSortableRows('Index'));
-        $sortable->setUpdateVersionedStage('Live');
+        $gridConfig->addComponent(GridFieldOrderableRows::create());
 
         $fields->addFieldsToTab('Root.Main', [
             GridField::create(
